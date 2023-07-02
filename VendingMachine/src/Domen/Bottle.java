@@ -3,7 +3,7 @@ package Domen;
 public class Bottle extends Product {
     // Поля
     private float bottleVolume;
-// Свойства
+    // Свойства
     public float getBottleVolume() {
         return bottleVolume;
     }
@@ -23,7 +23,7 @@ public class Bottle extends Product {
 
     @Override
     public String toString() {
-        return super.toString() + "\nvolume="+bottleVolume ;
+        return super.toString() + "volume = "+bottleVolume ;
     }
 
 }
