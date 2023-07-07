@@ -2,16 +2,24 @@ package Classes;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import Interfaces.iActorBehaviuor;
-
 import Interfaces.iMarketBehaviour;
 import Interfaces.iQueueBehaviour;
+import Interfaces.iReturnOrder;
 
-public class Market implements iMarketBehaviour,iQueueBehaviour {
-
+/** 
+ * Класс магазин реализующий интерфейсы поведение в магазине, поведение очереди, возврат заказа
+ * @author --
+ * @version 1.0
+*/
+public class Market implements iMarketBehaviour,iQueueBehaviour,iReturnOrder {
+    
+    /** поле список клиентов пришедших в магазин (очередь) */
     private List<iActorBehaviuor> queue;
 
+    /**
+     * Конструктор - создание нового объекта (очередь)
+     */
     public Market() {
         this.queue = new ArrayList<iActorBehaviuor>();
     }
@@ -35,14 +43,15 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
             System.out.println(actor.getName()+" клиент ушел из магазина ");
             queue.remove(actor);
         }
-        
     }
 
     @Override
     public void update() {
        takeOrder();
        giveOrder();
+       returnOrder();
        releaseFromQueue();
+
     }
 
     @Override
@@ -55,7 +64,6 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
                 System.out.println(actor.getActor().getName()+" клиент получил свой заказ ");
             }
         }
-        
     }
 
     @Override
@@ -69,11 +77,9 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
             System.out.println(actor.getActor().getName()+" клиент ушел из очереди ");
         }
 
-       }
-    releaseFromMarket(releaseActors);
+        }
+        releaseFromMarket(releaseActors);
     }
-
-
 
     @Override
     public void takeOrder() {
@@ -83,12 +89,19 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
             {
                 actor.setMakeOrder(true);
                 System.out.println(actor.getActor().getName()+" клиент сделал заказ ");
-
             }
         }
-        
     }
 
-
-    
+    @Override
+    public void returnOrder() {
+        for(iActorBehaviuor actor: queue)
+        {
+            if(actor.isMakeOrder() & actor.isTakeOrder())
+            {
+                actor.setMakeOrder(false);
+                System.out.println(actor.getActor().getName()+" клиент вернул свой заказ ");
+            }
+        }
+    } 
 }

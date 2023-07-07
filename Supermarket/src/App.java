@@ -2,6 +2,7 @@ import Classes.Actor;
 import Classes.Market;
 import Classes.OrdinaryClient;
 import Classes.PensionerClient;
+import Classes.PromotionClient;
 import Classes.SpecialClient;
 import Classes.TaxService;
 import Interfaces.iActorBehaviuor;
@@ -14,11 +15,17 @@ public class App {
         iActorBehaviuor client2 = new SpecialClient("prezident",1001);
         iActorBehaviuor p = new PensionerClient("Sergey Nikolay",1111);
         iActorBehaviuor tax = new TaxService();
+        iActorBehaviuor Krex = new PromotionClient("Durimar",1002);
+        iActorBehaviuor Pex = new PromotionClient("Buratino",1003);
+        iActorBehaviuor Fex = new PromotionClient("Bazilio",1004);
 
         magnit.acceptToMarket(client1);
         magnit.acceptToMarket(client2);
         magnit.acceptToMarket(p);
         magnit.acceptToMarket(tax);
+        magnit.acceptToMarket(Krex);
+        magnit.acceptToMarket(Pex);
+        magnit.acceptToMarket(Fex);
 
         magnit.update();
     }

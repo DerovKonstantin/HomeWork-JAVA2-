@@ -1,8 +1,19 @@
 package Classes;
 
+/** 
+ * Класс пенсионер наследник класса клиент
+ * @author --
+ * @version 1.0
+*/
 public class PensionerClient extends Actor {
+    /** поле идентификационный номер пенсионера */
     private int pensID;
 
+    /**
+     * Конструктор - создание нового объекта (пенсионер)
+     * @param name - имя клиента
+     * @param pensID - идентификационный номер пенсионера
+     */
     public PensionerClient(String name, int pensID) {
         super(name+" - пенсионер");
         this.pensID = pensID;
@@ -21,16 +32,17 @@ public class PensionerClient extends Actor {
       return super.isMakeOrder;
     }
 
-    public void setTakeOrder(boolean makeOder) {
-      super.isMakeOrder = makeOder;
+    @Override
+    public void setMakeOrder(boolean makeOrder) {
+       isMakeOrder = makeOrder;
     }
-    
-    public void setMakeOrder(boolean pikUpOrder) {
-      super.isTakeOrder = pikUpOrder;
+
+    @Override
+    public void setTakeOrder(boolean pickUpOrder) {
+       isTakeOrder = pickUpOrder;   
     }
 
     public Actor getActor() {
       return this;
     }
-    
 }

@@ -1,7 +1,20 @@
 package Classes;
 
+/** 
+ * Класс спец клиент наследник класса клиент
+ * @author --
+ * @version 1.0
+*/
 public class SpecialClient extends Actor{
+
+    /** поле идентификационный номер спец клиента */
     private int idVip;
+
+    /**
+     * Конструктор - создание нового объекта (обычный клиент)
+     * @param name - имя клиента
+     * @param pensID - идентификационный номер спец клиента
+     */
     public SpecialClient(String name, Integer id) {
         super(name);
         idVip = id;
@@ -20,12 +33,14 @@ public class SpecialClient extends Actor{
       return super.isMakeOrder;
     }
 
-    public void setTakeOrder(boolean makeOder) {
-      super.isMakeOrder = makeOder;
+    @Override
+    public void setMakeOrder(boolean makeOrder) {
+       isMakeOrder = makeOrder;
     }
-    
-    public void setMakeOrder(boolean pikUpOrder) {
-      super.isTakeOrder = pikUpOrder;
+
+    @Override
+    public void setTakeOrder(boolean pickUpOrder) {
+       isTakeOrder = pickUpOrder;   
     }
 
     public Actor getActor() {
