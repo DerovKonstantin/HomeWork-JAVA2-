@@ -2,6 +2,11 @@ package Domen;
 
 import java.util.Comparator;
 
+/** 
+ * Класс сравнения людей, использует интерфейс сравнения
+ * @author --
+ * @version 1.0
+*/
 public class PersonComparator<T extends Person> implements Comparator<T> {
 
     @Override

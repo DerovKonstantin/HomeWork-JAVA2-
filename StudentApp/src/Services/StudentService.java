@@ -6,10 +6,20 @@ import java.util.List;
 import Domen.PersonComparator;
 import Domen.Student;
 
+/** 
+ * Класс табель учета студентов, использует интерфейс табель учета людей
+ * @author --
+ * @version 1.0
+*/
 public class StudentService implements iPersonService<Student> {
+    /** поле счетчик */
     private int count;
+    /** поле список студентов */
     private List<Student> students;
 
+    /**
+     * Конструктор - создание нового объекта (список студентов)
+     */
     public StudentService() {
         this.students = new ArrayList<Student>();
     }
@@ -26,6 +36,9 @@ public class StudentService implements iPersonService<Student> {
         students.add(per);
     }    
 
+    /**
+     * метод сортирет студентов по имени
+     */
     public void sortByFIOStdLst()
     {
        // List<Student> newStudentList = new ArrayList<Student>(students);
